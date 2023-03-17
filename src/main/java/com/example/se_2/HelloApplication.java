@@ -3,13 +3,9 @@ package com.example.se_2;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -42,12 +38,6 @@ public class HelloApplication extends Application {
 
         stage.show();
     }
-    EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-        @Override
-        public void handle(MouseEvent e) {
-            System.out.println("test");
-        }
-    };
 
     public static void main(String[] args) {
         launch();
