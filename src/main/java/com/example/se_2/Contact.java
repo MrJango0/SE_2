@@ -1,12 +1,12 @@
 package com.example.se_2;
 
-public class Contact{
+public class Contact {
 
     private final String firstName;
     private final String lastName;
     private final String number;
 
-    Contact(String firstName, String lastName,String number) {
+    Contact(String firstName, String lastName, String number) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.number = number;

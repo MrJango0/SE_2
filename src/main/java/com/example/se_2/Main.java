@@ -14,47 +14,24 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    private final TableView table = new TableView();
-    final ObservableList<Contact> data = FXCollections.observableArrayList(
-            new Contact("Jacob", "Smith", "jacob.smith@example.com"),
-            new Contact("Isabella", "Johnson", "isabella.johnson@example.com"),
-            new Contact("Ethan", "Williams", "ethan.williams@example.com"),
-            new Contact("Emma", "Jones", "emma.jones@example.com"),
-            new Contact("Michael", "Brown", "michael.brown@example.com")
-    );
-
     @Override
     public void start(Stage stage) throws IOException {
         BorderPane root = new BorderPane();
-        Scene scene = new Scene(root, 320, 240);
+        Scene scene = new Scene(root, 640, 480);
         stage.setTitle("TelephoneBook");
         stage.setScene(scene);
 
         //SearchTextField
-        root.setTop(new SearchArea().getpane());
+        root.setTop(new SearchArea().getPane());
 
-        //Table for contacts
-        TableView table = new TableView();
+        //Table
+        TableArea table = new TableArea();
+        table.addContact("Jan", "Hadik", "015759175075");
+        table.addContact("Jan", "Hadik", "015759175075000");
+        root.setCenter(table.getPane());
 
-        TableColumn firstNameCol = new TableColumn("First Name");
-        TableColumn lastNameCol = new TableColumn("Last Name");
-        TableColumn numberCol = new TableColumn("Number");
-        table.getColumns().addAll(firstNameCol, lastNameCol, numberCol);
-        firstNameCol.setCellValueFactory(
-                new PropertyValueFactory<Contact,String>("firstName")
-        );
-        lastNameCol.setCellValueFactory(
-                new PropertyValueFactory<Contact,String>("lastName")
-        );
-        numberCol.setCellValueFactory(
-                new PropertyValueFactory<Contact,String>("number")
-        );
-
-        table.setItems(data);
-        table.getColumns().addAll(firstNameCol, lastNameCol, numberCol);
-
-        table.setEditable(true);
-        root.setCenter(table);
+        //edit Area
+        root.setBottom(new EditArea().getPane());
 
         stage.show();
     }

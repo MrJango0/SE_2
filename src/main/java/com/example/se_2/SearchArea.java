@@ -13,29 +13,24 @@ public class SearchArea {
     private final TextField searchTextField = new TextField();
     private final Button searchButton = new Button();
 
-    public SearchArea(){
+    public SearchArea() {
         AnchorPane.setLeftAnchor(searchTextField, 10.0);
         AnchorPane.setTopAnchor(searchTextField, 10.0);
         AnchorPane.setRightAnchor(searchTextField, 90.0);
         AnchorPane.setBottomAnchor(searchTextField, 10.0);
 
-        AnchorPane.setLeftAnchor(searchButton, 250.0);
+        AnchorPane.setLeftAnchor(searchButton, 560.0);
         AnchorPane.setTopAnchor(searchButton, 10.0);
         AnchorPane.setRightAnchor(searchButton, 10.0);
         AnchorPane.setBottomAnchor(searchButton, 10.0);
         searchButton.setText("Go!");
 
-        searchButton.onActionProperty().setValue(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println(searchTextField.getText());
-            }
-        });
+        searchButton.onActionProperty().setValue(actionEvent -> System.out.println(searchTextField.getText()));
 
         anchorPane.getChildren().addAll(searchTextField, searchButton);
     }
 
-    public Node getpane(){
+    public Node getPane() {
         return anchorPane;
     }
 }
